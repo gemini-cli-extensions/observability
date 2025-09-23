@@ -1,0 +1,15 @@
+{
+  "name": "observability",
+  "version": "0.1.0",
+  "description": "Enable MCP-compatible AI agents to interact with Google Cloud.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "observability": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@google-cloud/observability-mcp"
+      ]
+    }
+  }
+}

@@ -1,9 +1,9 @@
-# Google Cloud Observability MCP Server ☁️
+# Google Cloud Observability Extension for Gemini CLI ☁️
 
-This server connects
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) clients (like
-the [Gemini CLI](https://github.com/google-gemini/gemini-cli)) to Cloud
-Observability APIs to search for logs, view metrics, return traces and view
+This extension connects [Gemini CLI](https://github.com/google-gemini/gemini-cli)
+to Cloud Observability APIs with an 
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server to 
+search for logs, view metrics, return traces and view
 error reports. It acts as a local bridge, translating natural language commands
 from your CLI into the appropriate API calls to help you **understand, manage,
 and troubleshoot** your Google Cloud environment.
@@ -17,8 +17,40 @@ and troubleshoot** your Google Cloud environment.
 
 ## 🚀 Getting Started
 
-For prerequisites and setup instructions, please see the
-[root README](../../README.md#-getting-started).
+### Prerequisites
+
+-   [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+    version 20 or higher
+-   [gcloud CLI](https://cloud.google.com/sdk/docs/install)
+
+## ✨ Install the extension
+
+### Gemini CLI and Gemini Code Assist
+
+To integrate this extension with Gemini CLI or Gemini Code Assist, run the setup
+command below. This will install the MCP server as a
+[Gemini CLI extension](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md)
+for the current user, making it available for all your projects. Refer to 
+[Gemini CLI extension management](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md#extension-management)
+for uninstall, disable, enable, and update instructions.
+
+```shell
+gemini extensions install https://github.com/gemini-cli-extensions/observability
+```
+
+After the initialization process, you can verify that the observability-mcp server is
+configured correctly by running the following command:
+
+```
+gemini mcp list
+
+> ✓ observability: npx -y @google-cloud/observability-mcp (stdio) - Connected
+```
+
+### For other AI clients
+
+See github.com/googleapis/gcloud-mcp for instructions on using the Cloud Observability MCP
+server with other AI clients.
 
 ### Authentication
 
@@ -76,30 +108,18 @@ The server exposes the following tools:
 
 | Service             | Tool                      | Description                |
 | ------------------- | ------------------------- | -------------------------- |
-| **Logging**         | `list_log_entries`        | Lists log entries from a   |
-:                     :                           : project.                   :
-|                     | `list_log_names`          | Lists log names from a     |
-:                     :                           : project.                   :
-|                     | `list_buckets`            | Lists log buckets from a   |
-:                     :                           : project.                   :
-|                     | `list_views`              | Lists log views from a     |
-:                     :                           : project.                   :
-|                     | `list_sinks`              | Lists log sinks from a     |
-:                     :                           : project.                   :
-|                     | `list_log_scopes`         | Lists log scopes from a    |
-:                     :                           : project.                   :
-| **Monitoring**      | `list_metric_descriptors` | Lists metric descriptors   |
-:                     :                           : for a project.             :
-|                     | `list_time_series`        | Lists time series data for |
-:                     :                           : a given metric.            :
-|                     | `list_alert_policies`     | Lists the alert policies   |
-:                     :                           : in a project.              :
-| **Trace**           | `list_traces`             | Searches for traces in a   |
-:                     :                           : project.                   :
-|                     | `get_trace`               | Gets a specific trace in a |
-:                     :                           : project.                   :
-| **Error Reporting** | `list_group_stats`        | Lists the error groups for |
-:                     :                           : a project.                 :
+| **Logging**         | `list_log_entries`        | Lists log entries from a project. |
+|                     | `list_log_names`          | Lists log names from a project. |
+|                     | `list_buckets`            | Lists log buckets from a project. |
+|                     | `list_views`              | Lists log views from a project. |
+|                     | `list_sinks`              | Lists log sinks from a project. |
+|                     | `list_log_scopes`         | Lists log scopes from a project. |
+| **Monitoring**      | `list_metric_descriptors` | Lists metric descriptors for a project. |
+|                     | `list_time_series`        | Lists time series data for a given metric. |
+|                     | `list_alert_policies`     | Lists the alert policies in a project. |
+| **Trace**           | `list_traces`             | Searches for traces in a project. |
+|                     | `get_trace`               | Gets a specific trace in a project. |
+| **Error Reporting** | `list_group_stats`        | Lists the error groups for a project. |
 
 ## 🛡️ Important Notes
 

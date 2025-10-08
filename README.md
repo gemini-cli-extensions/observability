@@ -29,7 +29,7 @@ and troubleshoot** your Google Cloud environment.
 
 To integrate this extension with Gemini CLI or Gemini Code Assist, run the setup
 command below. This will install the MCP server as a
-[Gemini CLI extension](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md)
+[Gemini CLI extension](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md)
 for the current user, making it available for all your projects. Refer to 
 [Gemini CLI extension management](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md#extension-management)
 for uninstall, disable, enable, and update instructions.
